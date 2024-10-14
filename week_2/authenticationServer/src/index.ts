@@ -18,6 +18,8 @@ const port = 3000;
 app.get("/", (req: Request, res: Response) => {
   res.status(200).json({ message: "Welcome to Authentication server..." });
 });
+
+//Signup route
 app.post("/signup", (req: Request, res: Response) => {
   const { userName, firstName, lastName, password } = req.body;
   const userExists = userDataArr.find((user) => user.userName === userName);
@@ -38,6 +40,7 @@ app.post("/signup", (req: Request, res: Response) => {
     .json({ message: "User created successfully.", userId: newUser.id });
 });
 
+//Signin route
 app.post("/signin", (req: Request, res: Response) => {
   const { userName, password } = req.body;
   const user = userDataArr.find(
